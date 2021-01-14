@@ -1,0 +1,22 @@
+{
+    "TodoList":[
+        {
+            "listName": "courses",
+            "tasks":[
+                "lait",
+                "oeufs",
+                "farine",
+                "viande",
+                "poulet"
+            ]
+        },
+        {
+            "listName": "préparer voyage",
+            "tasks": [
+                "réserver billet",
+                "réserver hotel",
+                "faire bagages"
+            ]
+        }
+    ]   
+}
