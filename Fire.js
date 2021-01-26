@@ -1,15 +1,16 @@
 import firebase from 'firebase';
 import '@firebase/firestore';
 
-var firebaseConfig = {
-    apiKey: "AIzaSyDnpa5NeAkBqRIxKnsQess75cJ3MfFwnig",
-    authDomain: "the-ultimate-todo-list-4994f.firebaseapp.com",
-    projectId: "the-ultimate-todo-list-4994f",
-    storageBucket: "the-ultimate-todo-list-4994f.appspot.com",
-    messagingSenderId: "241003425517",
-    appId: "1:241003425517:web:fcd7576eb9c7d0839ba6e4",
-    measurementId: "G-BDV77NQC31"
-  };
+const firebaseConfig = {
+    apiKey: "AIzaSyC3wanq-ODhN__Q_huWrbuPjUsmsKgsRWk",
+    authDomain: "todolister-e0ed8.firebaseapp.com",
+    databaseURL: "https://todolister-e0ed8.firebaseio.com",
+    projectId: "todolister-e0ed8",
+    storageBucket: "todolister-e0ed8.appspot.com",
+    messagingSenderId: "1043908609266",
+    appId: "1:1043908609266:web:e942dc99ffdf864dbb7c6b"
+};
+
 
 export default class Fire {
     
@@ -34,7 +35,7 @@ export default class Fire {
         });
     }
     get ref() {
-        return firebase.firestore().collection("list");
+        return firebase.firestore().collection("lists");
     }
     getLists(callback){
         let ref = this.ref.orderBy("name");
@@ -61,3 +62,22 @@ export default class Fire {
         ref.doc(list.id).update(list);
     }
 }
+
+/*firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+export const authenticateAnonymously = () => {
+    return firebase.auth().signInAnonymously();
+};
+
+
+export const createList = (name, tasks) => {
+    return db.collection('lists').add({
+        name: name,
+        tasks
+    })
+}
+
+export const getLists = () => {
+    return db.collection('lists').get()
+}*/

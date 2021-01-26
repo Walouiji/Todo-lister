@@ -11,7 +11,7 @@ export default function Home({navigation}){
 
     const [lists, setLists] = useState([]);
     const [loading, setLoading] = useState(true);
-    useEffect( () => {
+    useEffect(() => {
       const firebase = new Fire((error) => {
         if(error) {
           return alert("Error Happened");
@@ -36,7 +36,7 @@ export default function Home({navigation}){
             )
       )}
           </View>
-          <TouchableOpacity style={styles.addList} onPress={()=>navigation.navigate('Create List', {firebase})} >
+          <TouchableOpacity style={styles.addList} onPress={()=>navigation.navigate('Create List')} >
                   <Text style={{ fontSize: 25, color:colors.blue}}>+</Text>
               </TouchableOpacity>
         </ScrollView>
