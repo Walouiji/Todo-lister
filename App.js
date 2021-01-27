@@ -5,7 +5,6 @@ const Stack = createStackNavigator()
 
 import Home from './screens/Home'
 import ListCreator from './screens/ListCreator'
-import TasksCreator from './screens/TasksCreator'
 import List from './screens/List'
 
 
@@ -14,10 +13,9 @@ export default function App() {
     
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home}/>
-        <Stack.Screen name="Create List" component={ListCreator} />
-        <Stack.Screen name="Create Tasks" component={TasksCreator} />
-        <Stack.Screen name="List" component={List}/>
+        <Stack.Screen name="Menu" component={Home}/>
+        <Stack.Screen name="Créer une liste" component={ListCreator} />
+        <Stack.Screen name="Liste" component={List}/>
       </Stack.Navigator>
     </NavigationContainer>
   ); 

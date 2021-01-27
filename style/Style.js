@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     addList: {
         borderWidth: 5,
         borderColor: colors.blue,
-        color: colors.lightBlue,
+        color: colors.black,
         borderRadius: 20,
         padding: 8,
         marginTop: 3,
@@ -68,6 +68,13 @@ const styles = StyleSheet.create({
         borderWidth: 1, 
         width:150, 
         alignSelf:'center'
+    },
+    titre: {
+        color: colors.black,
+        fontWeight:'bold',
+        fontSize: 30,
+        textAlign: 'center',
+        marginBottom: 15,
     }
 })
 

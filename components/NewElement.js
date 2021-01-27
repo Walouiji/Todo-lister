@@ -4,12 +4,11 @@ import List from '../screens/List';
 import styles from '../style/Style'
 
 export default function NewElement(props) {
-    
     return(
         <View>
-            <TouchableOpacity style={styles.content} onPress={props.onPress} >
-                <Text style={styles.listName}>{props.content}</Text>
-                <Text style={styles.body}>task completed / total tasks</Text>
+            <TouchableOpacity style={styles.content} onPress={props.onPress}>
+                <Text style={styles.listName}>{props.list.name}</Text>
+                {/* <Text style={styles.body}>task completed / total tasks</Text> */}
             </TouchableOpacity>
         </View>
     )

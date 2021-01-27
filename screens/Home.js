@@ -31,12 +31,15 @@ export default function Home({navigation}){
           <View>
             {lists.map(list => (
               <View key={list.id}>          
-                <NewElement content={list.name} onPress={()=>navigation.navigate('List', {list})}/>
+                <NewElement content={list.name}
+                list={list} 
+                onPress={()=>navigation.navigate('Liste', {list})}
+                />
               </View>
             )
       )}
           </View>
-          <TouchableOpacity style={styles.addList} onPress={()=>navigation.navigate('Create List')} >
+          <TouchableOpacity style={styles.addList} onPress={()=>navigation.navigate('Créer une liste')} >
                   <Text style={{ fontSize: 25, color:colors.blue}}>+</Text>
               </TouchableOpacity>
         </ScrollView>
@@ -44,9 +47,3 @@ export default function Home({navigation}){
     </View>
     );
   }
-
-/* TODO
-ajouter menu options
-rétrécir margin éléments
-padding entre éléments et ajouts liste
-*/
