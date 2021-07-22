@@ -5,8 +5,10 @@ import styles from '../style/Style'
 
 export default function NewElement(props) {
     return(
-        <View>
-            <TouchableOpacity style={styles.content} onPress={props.onPress}>
+        <View style={styles.content}>
+            <TouchableOpacity  onPress={props.onPress}
+            onLongPress={props.onLongPress}
+            >
                 <Text style={styles.listName}>{props.list.name}</Text>
                 {/* <Text style={styles.body}>task completed / total tasks</Text> */}
             </TouchableOpacity>

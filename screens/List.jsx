@@ -10,25 +10,31 @@ export default function List({route}) {
 	const [list] = useState(route.params.list);
     const isFocused = useIsFocused()
     const [task, addTask] = useState('');
-    const [, setLists] = useState([]);
-    const [, setLoading] = useState(true);
-
-    const [] = useState(task.title);
+    const [lists, setLists] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const firebase = new Fire((error) => {
         if(error) {
           return alert("Error Happened");
         }
-        firebase.getLists(lists => {
-          setLists(lists);
-          setLoading(false);
-        });
         return function unsub() {
           firebase.detach();
         };
       });
 
     useEffect(() => {
+        const firebase = new Fire((error) => {
+            if(error) {
+              return alert("Error Happened");
+            }
+            firebase.getLists(lists => {
+              setLists(lists);
+              setLoading(false);
+            });
+            return function unsub() {
+              firebase.detach();
+            };
+          });
     } , [isFocused])
 
     return(
@@ -36,27 +42,26 @@ export default function List({route}) {
             <View>
                 <Text style={styles.titre} >{list.name}</Text>
             </View>
-            <ScrollView key={list.id} style={{flex:4}} >
+            <ScrollView key={list.id} style={{flex:1}} >
                 {list.tasks.map(task => {
                     return (
                         <View style={styles.content} key={task.id}>
-                            <View style={{ flex: 1, flexDirection: 'row' }}>
-                                <TextInput
-                                    value={task.title}
-                                    style={{ flex: 7 }} />
+                            <TouchableOpacity style={{ flex: 1, flexDirection: 'row' }}
+                            >
+                                <Text
+                                    style={{ flex: 10 }}>{task.title}</Text>
                                 <Switch value={task.completed} style={{ flex: 1 }}
                                     onValueChange={() => {
                                         list.tasks.push({ completed: !task.completed, title: task.title });
                                         firebase.updateList(list);
                                     } } />
-                                <Text></Text>
-                            </View>
+                            </TouchableOpacity>
                         </View>
                     );
                 } 
                 )}
             </ScrollView>
-        <View style={{flex:1}}>
+        <View >
             <TextInput 
             style={styles.addList}
             placeholder="Nom de la tâche"

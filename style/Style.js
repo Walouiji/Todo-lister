@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import colors from '../Colors'
 
 const styles = StyleSheet.create({
@@ -43,15 +43,16 @@ const styles = StyleSheet.create({
           textAlign: 'right'
       },
       content: {
-        alignSelf: 'center',
-        marginTop: 3,
-        borderRadius: 15,
-        padding: 15,
-        width: 400,
-        backgroundColor: colors.lightBlue,
+          alignSelf: 'center',
+          height: Dimensions.get('screen').height/17,
+          marginTop: 3,
+          borderRadius: 15,
+          width: Dimensions.get('screen').width-12,
+          backgroundColor: colors.lightBlue,
     },
     listName: {
-        textAlign: 'left',
+        alignSelf: 'center',
+        textAlign: 'center',
         fontWeight: "bold",
         color: colors.black,
     },

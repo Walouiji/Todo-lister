@@ -16,10 +16,6 @@ export default function ListCreator({navigation}) {
         if(error) {
           return alert("Error Happened");
         }
-        firebase.getLists(lists => {
-          setLists(lists);
-          setLoading(false);
-        });
         return function unsub() {
           firebase.detach();
         };
@@ -40,8 +36,7 @@ export default function ListCreator({navigation}) {
                     name: value,
                     tasks: []
                 });
-                if(loading == false){
-                navigation.navigate('Menu')}
+                navigation.navigate('Menu')
             }}
             >
                 <Text>Créer la liste</Text>

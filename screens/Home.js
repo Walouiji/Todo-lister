@@ -25,8 +25,17 @@ export default function Home({navigation}){
         };
       }); 
     }, []);
+    const firebase = new Fire((error) => {
+      if(error) {
+        return alert("une erreur est survenue")
+      }
+      return function unsub() {
+        firebase.detach();
+      };
+    })
     return(
     <View>
+      <Text style={styles.titre} >Todo-inator</Text>
         <ScrollView >
           <View>
             {lists.map(list => (
@@ -34,6 +43,7 @@ export default function Home({navigation}){
                 <NewElement content={list.name}
                 list={list} 
                 onPress={()=>navigation.navigate('Liste', {list})}
+                onLongPress={()=> {firebase.deleteList(list)}}
                 />
               </View>
             )
